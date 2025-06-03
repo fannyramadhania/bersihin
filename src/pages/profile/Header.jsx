@@ -8,14 +8,13 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const HeaderLayout = () => {
-    const router =useRouter()
+  const router = useRouter();
   const [userData, setUserData] = useState({});
   const { setUser } = usePermify();
   useEffect(() => {
     async function fetchUser() {
       const user = await getItem("user");
       setUserData(user);
-      console.log(user);
     }
 
     fetchUser();
@@ -25,7 +24,6 @@ const HeaderLayout = () => {
     const user = await removeItem("user");
     setUser(null);
 
-    console.log("Logout clicked");
     toast.success("Berhasil logout");
     setTimeout(() => {
       router.push("/login");

@@ -8,17 +8,16 @@ import avatarCleaner from "@/assets/img/avatarcleaner.png";
 const ProfileComp = () => {
   const [userData, setUserData] = useState({});
 
-  useEffect( () => {
-  
+  useEffect(() => {
     async function fetchUser() {
       const user = await getItem("user");
-      console.log(user);
+
       setUserData(user);
     }
 
-    fetchUser()
+    fetchUser();
   }, []);
-  
+
   return (
     <div className="flex flex-col items-center text-center mt-10 text-gray-700">
       {/* Avatar */}

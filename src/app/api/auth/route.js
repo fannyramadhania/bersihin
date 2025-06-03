@@ -7,8 +7,6 @@ export async function GET(request) {
     const body = await request.json();
     const { email, password } = body;
 
-    console.log(body);
-    
     const { data, error } = await supabase
       .from("Customers")
       .select("*")
@@ -56,20 +54,13 @@ export async function POST(request) {
   const phone = formData.get("phone");
   const address = formData.get("address");
 
-
-
-  const { data, error } = await supabase
-    .from("Customers")
-    .insert({
-      name: name,
-      email: email,
-      password: password,
-      phone: phone,
-      address: address,
-    });
-
-  
-  console.log(data);
+  const { data, error } = await supabase.from("Customers").insert({
+    name: name,
+    email: email,
+    password: password,
+    phone: phone,
+    address: address,
+  });
 
   if (error) {
     return new Response(JSON.stringify({ error: error.message }), {

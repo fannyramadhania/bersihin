@@ -15,7 +15,7 @@ const RiwayatPage = () => {
   useEffect(() => {
     async function fetchUser() {
       const user = await getItem("user");
-      console.log(user);
+
       setUserData(user);
     }
 
@@ -136,7 +136,6 @@ const RiwayatPage = () => {
   if (isLoading) {
     return <Loading />;
   }
-  console.log(dataRiwayat?.data);
 
   return (
     <>

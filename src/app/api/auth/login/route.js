@@ -5,8 +5,6 @@ export async function POST(request) {
     const body = await request.json();
     const { email, password } = body;
 
-    console.log(body);
-
     const { data, error } = await supabase
       .from("Customers")
       .select("*")
@@ -45,4 +43,3 @@ export async function POST(request) {
     );
   }
 }
-  

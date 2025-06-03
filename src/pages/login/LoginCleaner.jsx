@@ -36,10 +36,7 @@ const LoginCleanerComponent = () => {
       loading: "Mohon tunggu...",
       success: (response) => {
         if (response.status === 200 || response.status === 201) {
-          console.log(response);
-
           saveDataUser(response.data.data?.[0]);
-          console.log(response.data.data?.[0]);
 
           setUser({
             id: response.data.data?.[0]?.cleaner_id,

@@ -16,7 +16,7 @@ const RiwayatCleaner = () => {
   useEffect(() => {
     async function fetchUser() {
       const user = await getItem("user");
-      console.log(user);
+
       setUserData(user);
     }
 
@@ -126,14 +126,12 @@ const RiwayatCleaner = () => {
     enabled: !!userData?.cleaner_id,
   });
   const onSubmit = async (formValues, taskId) => {
-    console.log("Form Values:", formValues);
-    console.log("Task ID:", taskId);
-
+  
     const formData = new FormData();
     formData.append("id", taskId);
     formData.append("status", formValues.status);
 
-    console.log(userData?.cleaner_id);
+  
 
     if (formValues.status == "CANCEL") {
       formData.append("reason_cancel", formValues.alasan || "");
@@ -154,8 +152,6 @@ const RiwayatCleaner = () => {
       toast.error("Gagal memperbarui status: " + result.error);
     }
   };
-  console.log("Data Order:", dataOrder);
-
   if (isLoading) {
     return <Loading />;
   }

@@ -25,7 +25,7 @@ const BookingCard = ({
   useEffect(() => {
     async function fetchUser() {
       const user = await getItem("user");
-      console.log(user);
+
       setUserData(user);
     }
 
@@ -67,7 +67,6 @@ const BookingCard = ({
       formData.append("total", totalPembayaran.toString());
       formData.append("cus_id", customer_id);
 
-      console.log([...formData.entries()]);
 
       const requestPromise = axios.post("/api/order", formData);
 
@@ -75,7 +74,6 @@ const BookingCard = ({
         loading: "Mohon tunggu...",
         success: (response) => {
           if (response.status === 200 || response.status === 201) {
-            console.log("Order berhasil:", response.data);
           }
 
           setTimeout(() => {
@@ -117,7 +115,6 @@ const BookingCard = ({
   };
 
   const pembayaranDetail = (param) => {
-    console.log(param);
     setValue("mainPackage", param);
   };
 
@@ -224,9 +221,7 @@ const BookingCard = ({
         </div>
         <div className="flex flex-col md:flex-row gap-4 mb-4">
           <div className="w-full md:w-1/2">
-            <p onClick={() => console.log(watch("bookingDate").toISOString())}>
-              log booking
-            </p>
+         
             <DatePickerField
               control={control}
               name="bookingDate"

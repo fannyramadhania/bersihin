@@ -36,7 +36,6 @@ export default function Order() {
   });
 
 
-  console.log(dataLantaiBangunan);
   
   if (isLoading || isLoadingTipeBangunan || isLoadingLantaiBangunan)
     return <p>Loading...</p>;

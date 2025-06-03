@@ -10,7 +10,7 @@ const LandingPage = () => {
   useEffect(() => {
     async function fetchUser() {
       const user = await getItem("user");
-      console.log(user);
+
       if (user) {
         setAuthorize(true);
         setRole(user.cleaner_id ? "cleaner" : "customer");

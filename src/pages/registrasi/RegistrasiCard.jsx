@@ -43,7 +43,6 @@ const RegisterCard = () => {
       loading: "Mohon tunggu...",
       success: (response) => {
         if (response.status === 200 || response.status === 201) {
-          console.log(response);
           setTimeout(() => {
             router.push("/login");
           }, 1000);

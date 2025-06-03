@@ -302,7 +302,6 @@ const packagePriceList = [
   };
 
   const direct = () => {
-    console.log(isAuthorize);
 
     if (isAuthorize) {
       if (role == "customer") {
