@@ -28,6 +28,7 @@ import { useEffect, useRef, useState } from "react";
 import LandingPhoto from "@/assets/img/landng3.png";
 import { useRouter } from "next/navigation";
 import LandingPhotoSlider from "@/assets/img/landing2.jpeg";
+import FaqComponent from "@/components/FAQ.";
 const LandingPageCard = ({ role, isAuthorize }) => {
   const router = useRouter();
   const aboutRef = useRef();
@@ -40,12 +41,13 @@ const LandingPageCard = ({ role, isAuthorize }) => {
   };
   const jobDeskRef = useRef();
   const contactRef = useRef();
+  const faqRef = useRef();
   const [activeSection, setActiveSection] = useState("");
   const menuItems = [
     { label: "Tentang", ref: aboutRef },
     { label: "Spesialis", ref: jobDeskRef },
     { label: "Paket", ref: packageRef },
-    { label: "Kontak", ref: contactRef },
+    { label: "FAQ", ref: faqRef },
   ];
 
   const needData = [
@@ -315,7 +317,7 @@ const packagePriceList = [
   };
   return (
     <div className="text-gray-700 ">
-      <div className="sticky top-0 bg-green-800 hidden md:flex justify-between ">
+      <div className="sticky top-0 bg-[#69b646] hidden md:flex justify-between ">
         <div className="flex gap-x-4 p-4">
           <div className="text-white flex items-center gap-x-4 mr-6 ">
             <EnvironmentFilled
@@ -329,7 +331,7 @@ const packagePriceList = [
           <div className="text-white flex items-center gap-x-4 ">
             <MailFilled className="text-white" style={{ fontSize: "20px" }} />
             <div className="text-sm">
-              <p>Bersih.in@gmail.com</p>
+              <p>infobersihin@gmail.com</p>
             </div>
           </div>
         </div>
@@ -343,13 +345,13 @@ const packagePriceList = [
           </div>
         </div>
       </div>
-      <div className="sticky top-0 bg-white shadow-md z-50">
-        <div className="flex items-center justify-between mx-4 py-2">
+      <div className="sticky top-0 bg-white shadow-md  z-50">
+        <div className="flex items-center justify-between h-20 mx-4 py-2">
           <div className="flex items-center">
             <Image
               src={Logo}
               alt="logo"
-              width={80}
+              width={120}
               height={80}
               className="mr-4"
             />
@@ -403,7 +405,7 @@ const packagePriceList = [
       <div className="flex md:justify-between justify-center items-center">
         <div className="w-full bg-gradient-to-l from-[#e8e6e7] to-gray-50 h-[500px] flex items-center justify-center">
           <div className="text-center md:text-start">
-            <h1 className="text-5xl font-bold font-sans text-green-800 mt-10">
+            <h1 className="text-5xl font-bold font-sans text-[#32a0db] mt-10">
               <span className="text-sm">Cepat & Bisa Diandalkan</span> <br />
               Bersihin
               <br />
@@ -413,7 +415,7 @@ const packagePriceList = [
             </h1>
 
             <button
-              className="bg-blue-500 cursor-pointer text-white font-bold py-2 px-4 rounded-full mt-10 hover:bg-green-700 transition duration-300 ease-in-out"
+              className="bg-blue-500 cursor-pointer text-white font-bold py-2 px-4 rounded-full mt-10 hover:bg-[#32a0db] transition duration-300 ease-in-out"
               onClick={() => direct()}
             >
               Pesan Sekarang
@@ -432,7 +434,7 @@ const packagePriceList = [
 
       <div className="m-6 mt-20 md:flex justify-center mb-20" ref={aboutRef}>
         <div className="md:w-96">
-          <p className="md:text-4xl text-2xl font-bold  font-sans text-green-800">
+          <p className="md:text-4xl text-2xl font-bold  font-sans text-[#32a0db]">
             Tentang Kami
           </p>
           <p className=" mt-4 ">
@@ -441,7 +443,7 @@ const packagePriceList = [
             yang maksimal!
           </p>
         </div>
-        <div className="bg-blue-300 my-10 md:my-0 md:w-96 w-64 self-center m-auto block md:inline md:m-4 rounded-full border-6 border-[#fcd134] mr-10 ">
+        <div className="bg-blue-300 my-10 md:my-0 md:w-96 w-64 self-center m-auto block md:inline md:m-4 rounded-full border-6 border-[#69b646] mr-10 ">
           <Image
             src={HomePageImg2}
             alt="homepage"
@@ -450,7 +452,7 @@ const packagePriceList = [
           />
         </div>
         <div className=" self-end">
-          <p className="md:text-4xl text-2xl font-bold  font-sans text-green-800">
+          <p className="md:text-4xl text-2xl font-bold  font-sans text-[#32a0db]">
             Kenapa harus Bersih.in ?
           </p>
           <ul className="list-disc ml-5 mt-4  text-gray-700 space-y-2">
@@ -463,7 +465,7 @@ const packagePriceList = [
         </div>
       </div>
       <div
-        className="hidden md:block w-full h-96 bg-green-700 mt-4 relative"
+        className="hidden md:block w-full h-96 bg-[#32a0db] mt-4 relative"
         ref={jobDeskRef}
       >
         {/* Tempatkan kotak yang menimpa di sini */}
@@ -471,7 +473,7 @@ const packagePriceList = [
           <div className="flex justify-center">
             {" "}
             <div className="bg-gray-100 shadow-lg p-6  rounded">
-              <p className="text-2xl font-bold font-sans text-green-800 text-center ">
+              <p className="text-2xl font-bold font-sans text-[#32a0db] text-center ">
                 Kami Ahlinya Bersih-Bersih !
               </p>
               <div className="flex justify-evenly w-[1300px] flex-wrap items-center mt-4">
@@ -487,7 +489,7 @@ const packagePriceList = [
                           style={{ fontSize: "20px", color: "#105e36" }}
                         />
                         <div className="">
-                          <p className="font-bold font-sans text-green-800">
+                          <p className="font-bold font-sans text-gray-600">
                             {item.title}
                           </p>
                           <p>{item.description}</p>
@@ -501,11 +503,11 @@ const packagePriceList = [
           </div>
         </div>
       </div>
-      <div className="hidden md:block w-full h-96 bg-[#fcd134]">
+      <div className="hidden md:block w-full h-96 bg-[#69b646]">
         {/* Tempatkan kotak yang menimpa di sini */}
       </div>
       <div className="bg-gray-100 md:hidden shadow-lg p-6 rounded w-full ">
-        <p className="text-2xl font-bold font-sans text-green-800 text-center">
+        <p className="text-2xl font-bold font-sans text-[#32a0db] text-center">
           Kami Ahlinya Bersih-Bersih!
         </p>
         <div className="flex flex-wrap justify-center items-center mt-4 gap-4">
@@ -520,7 +522,7 @@ const packagePriceList = [
                   style={{ fontSize: "20px", color: "#105e36" }}
                 />
                 <div>
-                  <p className="font-bold font-sans text-green-800">
+                  <p className="font-bold font-sans text-[#32a0db]">
                     {item.title}
                   </p>
                   <p>{item.description}</p>
@@ -532,7 +534,7 @@ const packagePriceList = [
       </div>
       <div className="md:flex justify-center items-center mt-10">
         <div className="p-6">
-          <p className="md:text-4xl text-2xl font-bold  font-sans text-green-800">
+          <p className="md:text-4xl text-2xl font-bold  font-sans text-[#32a0db]">
             Jasa Bersih-Bersih Rumah <br />
             yang Bisa Kamu Andalkan
           </p>
@@ -588,11 +590,10 @@ const packagePriceList = [
           src={LandingPhoto}
           alt="homepage"
           width={384} // w-96 = 384px
-        
-          className="hidden md:inline bg-blue-300 ml-[120px] border-[6px] border-[#fcd134]"
+          className="hidden md:inline bg-blue-300 ml-[120px] border-[6px] border-[#69b646]"
         />
       </div>
-      <div className="w-full mt-6 h-auto bg-green-700 text-white py-6">
+      <div className="w-full mt-6 h-auto bg-[#69b646] text-white py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center items-center">
           {rewardData.map((item) => (
             <div key={item.key} className="text-center">
@@ -606,7 +607,7 @@ const packagePriceList = [
 
       <div ref={packageRef}>
         <div>
-          <p className="md:text-4xl text-2xl font-bold  font-sans text-green-800 mt-10 text-center">
+          <p className="md:text-4xl text-2xl font-bold  font-sans text-[#32a0db] mt-10 text-center">
             Spesial Pricing Package No Hiding Charge
           </p>
           <div className="flex justify-center items-center mt-10 ">
@@ -718,41 +719,41 @@ const packagePriceList = [
           </div>
         </div>
       </div>
+      <div ref={faqRef}>
+        <p className="md:text-4xl text-2xl font-bold mt-2  font-sans text-[#32a0db] mt-10 text-center">
+          Temukan Jawabannya di Sini
+        </p>
+        <FaqComponent />
+      </div>
       <footer
         ref={contactRef}
-        style={{ backgroundColor: "#FCD134", padding: "20px 0" }}
-        className="mt-20"
+        style={{ backgroundColor: "#69b646", padding: "20px 0" }}
+        className="mt-20 text-white"
       >
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-xl font-bold text-gray-800 text-center md:text-start">
+              <h3 className="text-xl font-bold text-white text-center md:text-start">
                 Bersin.in
               </h3>
-              <p className="text-gray-700">Layanan Kebersihan Profesional</p>
+              <p className="text-white">Layanan Kebersihan Profesional</p>
             </div>
 
             <div className="flex flex-wrap justify-center md:justify-end space-x-6">
               <div className="mb-4 md:mb-0">
-                <h4 className="font-semibold text-gray-800 mb-2">Kontak</h4>
-                <p className="text-gray-700">bersih.in@cleanhouse.com</p>
-                <p className="text-gray-700">+1 (123) 456-7890</p>
+                <h4 className="font-semibold text-white mb-2">Kontak</h4>
+                <p className="text-white">infobersihin@gmail.com</p>
+                <p className="text-white">+1 (123) 456-7890</p>
               </div>
 
               <div>
-                <h4 className="font-semibold text-gray-800 mb-2">Follow Us</h4>
+                <h4 className="font-semibold text-white mb-2">Media</h4>
                 <div className="flex space-x-3">
-                  <a href="#" className="text-gray-700 hover:text-gray-900">
-                    <span className="sr-only">Facebook</span>
-                    <svg
-                      className="h-6 w-6"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
-                    </svg>
-                  </a>
-                  <a href="#" className="text-gray-700 hover:text-gray-900">
+                  <a
+                    href="https://www.instagram.com/layanan_bersih.in"
+                    target="_blank"
+                    className="text-white hover:text-gray-900"
+                  >
                     <span className="sr-only">Instagram</span>
                     <svg
                       className="h-6 w-6"
@@ -762,12 +763,27 @@ const packagePriceList = [
                       <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"></path>
                     </svg>
                   </a>
+                  <a
+                    href="https://wa.me/6281234567890" // ganti dengan nomor kamu
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-gray-900"
+                  >
+                    <span className="sr-only">WhatsApp</span>
+                    <svg
+                      className="h-6 w-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M20.52 3.478a11.777 11.777 0 00-17.043 0 11.777 11.777 0 000 17.043l-.9 3.282 3.364-.882a11.777 11.777 0 0014.579-17.443zM12 21.109a9.101 9.101 0 01-4.619-1.252l-.331-.194-2.366.621.633-2.302-.214-.343a9.128 9.128 0 1115.135-2.437 9.123 9.123 0 01-8.238 5.907zm5.263-6.876c-.289-.145-1.709-.842-1.974-.938-.265-.098-.458-.145-.65.145s-.748.938-.917 1.13c-.17.194-.34.218-.63.073-.289-.145-1.221-.449-2.328-1.43-.86-.767-1.439-1.716-1.607-2.005-.17-.289-.018-.445.127-.589.131-.13.292-.34.438-.511.145-.17.194-.292.292-.486.098-.194.049-.364-.024-.511-.072-.145-.65-1.573-.891-2.154-.235-.566-.474-.49-.65-.5l-.555-.01c-.194 0-.511.073-.778.364s-1.024 1-1.024 2.438 1.049 2.833 1.194 3.026c.145.194 2.064 3.152 5.001 4.419.7.3 1.245.478 1.67.613.7.223 1.336.192 1.84.117.561-.084 1.709-.7 1.95-1.376.241-.675.241-1.253.169-1.376-.072-.123-.265-.194-.555-.34z" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className=" mt-6 pt-6 text-center text-gray-700">
+          <div className=" mt-6 pt-6 text-center text-white">
             <p>© {new Date().getFullYear()} Bersih.in All rights reserved.</p>
           </div>
         </div>
