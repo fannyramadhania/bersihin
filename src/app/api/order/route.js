@@ -74,6 +74,7 @@ export async function GET(req) {
 
   const idCustomer = searchParams.get("id"); // optional
   const status = searchParams.get("status"); // optional
+  const cleanerId = searchParams.get("cleaner_id"); // optional
 
   let query = supabase.from("Order").select(
     `
@@ -99,6 +100,10 @@ export async function GET(req) {
     query = query.eq("status", status);
   }
 
+  if (cleanerId) {
+    query = query.eq("cleaner_id", cleanerId);
+  }
+
   const { data, error } = await query;
 
   if (error) {
@@ -117,6 +122,8 @@ export async function GET(req) {
     }
   );
 }
+
+
 
 
 export async function PATCH(request) {
@@ -145,9 +152,11 @@ export async function PATCH(request) {
 
   // Jika status adalah "CANCEL" (string), tambahkan reason_cancel jika ada
   if (newStatus === "CANCEL" && reasonCancel) {
-    updateData.reason_cancel = reasonCancel;
+    updateData.reason_cancelled = reasonCancel;
   }
 
+  console.log(updateData);
+  
   const { data, error } = await supabase
     .from("Order")
     .update(updateData)

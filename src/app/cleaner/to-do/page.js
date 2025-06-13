@@ -160,13 +160,11 @@ const CleanerTask = () => {
               placeholder="Pilih status"
             />
             <div className="mt-2">
-              {watch("status") == 2 && (
+              {watch("status") == "CANCEL" && (
                 <TextareaField
                   control={control}
                   name="alasan"
-                  rules={
-                    watch("status") == 1 ? { required: "Jam wajib diisi" } : {}
-                  }
+                 
                   label="Alasan"
                   placeholder="Masukkan alasan"
                 />

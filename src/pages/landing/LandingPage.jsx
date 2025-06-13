@@ -208,78 +208,77 @@ const LandingPageCard = ({ role, isAuthorize }) => {
     },
   ];
 
-const packagePriceList = [
-  {
-    key: 1,
-    title: "Bersih Berseri",
-    price: "Rp.89.000",
-    img: (
-      <Image
-        width={50}
-        height={50}
-        src="https://img.icons8.com/ios/50/housekeeper-female.png"
-        alt="housekeeper-female"
-      />
-    ),
-    description: "Lorem ipsum dolor sit amet.",
-    isInclude1: true,
-    isInclude2: true,
-    isInclude3: true,
-    isInclude4: true,
-    isInclude5: false,
-    isInclude6: false,
-    isInclude7: false,
-    isInclude8: false,
-    isInclude9: false,
-  },
-  {
-    key: 2,
-    title: "Poles Permai",
-    price: "Rp.170.000",
-    img: (
-      <Image
-        width={100}
-        height={100}
-        src="https://img.icons8.com/ios/100/broom-with-a-lot-of-dust.png"
-        alt="broom-with-a-lot-of-dust"
-      />
-    ),
-    description: "Lorem ipsum dolor sit amet.",
-    isInclude1: true,
-    isInclude2: true,
-    isInclude3: true,
-    isInclude4: true,
-    isInclude5: true,
-    isInclude6: true,
-    isInclude7: true,
-    isInclude8: false,
-    isInclude9: false,
-  },
-  {
-    key: 3,
-    title: "Sultan Bersih",
-    price: "Rp.230.000",
-    img: (
-      <Image
-        width={100}
-        height={100}
-        src="https://img.icons8.com/ios/100/washing-dishes.png"
-        alt="washing-dishes"
-      />
-    ),
-    description: "Lorem ipsum dolor sit amet.",
-    isInclude1: true,
-    isInclude2: true,
-    isInclude3: true,
-    isInclude4: true,
-    isInclude5: true,
-    isInclude6: true,
-    isInclude7: true,
-    isInclude8: true,
-    isInclude9: true,
-  },
-];
-
+  const packagePriceList = [
+    {
+      key: 1,
+      title: "Bersih Berseri",
+      price: "Rp.89.000",
+      img: (
+        <Image
+          width={50}
+          height={50}
+          src="https://img.icons8.com/ios/50/housekeeper-female.png"
+          alt="housekeeper-female"
+        />
+      ),
+      description: "Lorem ipsum dolor sit amet.",
+      isInclude1: true,
+      isInclude2: true,
+      isInclude3: true,
+      isInclude4: true,
+      isInclude5: false,
+      isInclude6: false,
+      isInclude7: false,
+      isInclude8: false,
+      isInclude9: false,
+    },
+    {
+      key: 2,
+      title: "Poles Permai",
+      price: "Rp.170.000",
+      img: (
+        <Image
+          width={100}
+          height={100}
+          src="https://img.icons8.com/ios/100/broom-with-a-lot-of-dust.png"
+          alt="broom-with-a-lot-of-dust"
+        />
+      ),
+      description: "Lorem ipsum dolor sit amet.",
+      isInclude1: true,
+      isInclude2: true,
+      isInclude3: true,
+      isInclude4: true,
+      isInclude5: true,
+      isInclude6: true,
+      isInclude7: true,
+      isInclude8: false,
+      isInclude9: false,
+    },
+    {
+      key: 3,
+      title: "Sultan Bersih",
+      price: "Rp.230.000",
+      img: (
+        <Image
+          width={100}
+          height={100}
+          src="https://img.icons8.com/ios/100/washing-dishes.png"
+          alt="washing-dishes"
+        />
+      ),
+      description: "Lorem ipsum dolor sit amet.",
+      isInclude1: true,
+      isInclude2: true,
+      isInclude3: true,
+      isInclude4: true,
+      isInclude5: true,
+      isInclude6: true,
+      isInclude7: true,
+      isInclude8: true,
+      isInclude9: true,
+    },
+  ];
 
   const contentStyle = {
     margin: 0,
@@ -304,7 +303,6 @@ const packagePriceList = [
   };
 
   const direct = () => {
-
     if (isAuthorize) {
       if (role == "customer") {
         router.push("/customer/order");

@@ -72,6 +72,10 @@ const ViewRiwayat = ({ dataDetail, setOpen, open }) => {
             <p className="font-medium">Cleaner</p>
             <p>{dataDetail?.Cleaners?.name || "-"}</p>
           </div>
+          <div>
+            <p className="font-medium">Alasan Dibatalkan</p>
+            <p>{dataDetail?.reason_cancelled || "-"}</p>
+          </div>
         </div>
       </div>
     </Modal>

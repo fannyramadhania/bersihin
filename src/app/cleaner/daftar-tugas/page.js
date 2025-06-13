@@ -5,7 +5,7 @@ import TableContainer from "@/components/TableContainer";
 import { getItem } from "@/lib/LocalForage";
 import ViewRiwayat from "@/pages/cleaner/riwayat/ViewRiwayat";
 import { useQuery } from "@tanstack/react-query";
-import { Select } from "antd";
+import { Modal, Select, Input } from "antd";
 import { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -13,13 +13,16 @@ const RiwayatCleaner = () => {
   const [userData, setUserData] = useState({});
   const [dataDetail, setDetailData] = useState({});
   const [open, setOpenModal] = useState(false);
+
+  const [showModalCancel, setShowModalCancel] = useState(false);
+  const [cancelReason, setCancelReason] = useState("");
+  const [selectedTaskId, setSelectedTaskId] = useState(null);
+
   useEffect(() => {
     async function fetchUser() {
       const user = await getItem("user");
-
       setUserData(user);
     }
-
     fetchUser();
   }, []);
 
@@ -57,9 +60,8 @@ const RiwayatCleaner = () => {
         accessorKey: "time_booking",
         cell: ({ getValue }) => {
           const time_booking = getValue();
-
           return (
-            <span className={`capitalize font-medium`}>
+            <span className="capitalize font-medium">
               {formatWaktu(time_booking)}
             </span>
           );
@@ -95,7 +97,12 @@ const RiwayatCleaner = () => {
             <Select
               className="w-52"
               onChange={(value) => {
-                onSubmit({ status: value }, idTask);
+                if (value === "CANCEL") {
+                  setSelectedTaskId(idTask);
+                  setShowModalCancel(true);
+                } else {
+                  onSubmit({ status: value }, idTask);
+                }
               }}
               defaultValue={status}
               options={[
@@ -114,9 +121,9 @@ const RiwayatCleaner = () => {
 
   const {
     data: dataOrder,
-    isLoading: isLoading,
+    isLoading,
     refetch,
-    error: error,
+    error,
   } = useQuery({
     queryKey: ["getOpen"],
     queryFn: async () => {
@@ -125,33 +132,46 @@ const RiwayatCleaner = () => {
     },
     enabled: !!userData?.cleaner_id,
   });
+
   const onSubmit = async (formValues, taskId) => {
-  
     const formData = new FormData();
     formData.append("id", taskId);
     formData.append("status", formValues.status);
 
-  
-
-    if (formValues.status == "CANCEL") {
+    if (formValues.status === "CANCEL") {
       formData.append("reason_cancel", formValues.alasan || "");
     }
+   
+    
 
     const res = await fetch("/api/order", {
       method: "PATCH",
       body: formData,
     });
 
+
+    
     const result = await res.json();
 
     if (res.ok) {
-      refetch(); // Refresh data setelah update
+      refetch();
       toast.success("Status berhasil diperbarui!");
-      // Tambahkan logika refresh data / re-render jika perlu
     } else {
       toast.error("Gagal memperbarui status: " + result.error);
     }
   };
+
+  const handleCancelSubmit = () => {
+    if (!cancelReason.trim()) {
+      toast.error("Alasan pembatalan tidak boleh kosong.");
+      return;
+    }
+    onSubmit({ status: "CANCEL", alasan: cancelReason }, selectedTaskId);
+    setShowModalCancel(false);
+    setCancelReason("");
+    setSelectedTaskId(null);
+  };
+
   if (isLoading) {
     return <Loading />;
   }
@@ -160,6 +180,26 @@ const RiwayatCleaner = () => {
     <>
       <TableContainer datas={dataOrder?.data || []} columns={columns} />
       <ViewRiwayat setOpen={setOpenModal} open={open} dataDetail={dataDetail} />
+
+      <Modal
+        title="Alasan Pembatalan"
+        open={showModalCancel}
+        onCancel={() => {
+          setShowModalCancel(false);
+          setCancelReason("");
+          setSelectedTaskId(null);
+        }}
+        onOk={handleCancelSubmit}
+        okText="Kirim"
+        cancelText="Batal"
+      >
+        <Input.TextArea
+          rows={4}
+          placeholder="Tulis alasan pembatalan..."
+          value={cancelReason}
+          onChange={(e) => setCancelReason(e.target.value)}
+        />
+      </Modal>
     </>
   );
 };
