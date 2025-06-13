@@ -5,9 +5,7 @@ import dayjs from "dayjs";
 const DatePickerField = ({ control, name, label, rules }) => {
   return (
     <div className="">
-      <label className="block text-sm text-gray-700 dark:text-neutral-200 mb-1">
-        {label}
-      </label>
+      <label className="block text-sm text-gray-700  mb-1">{label}</label>
       <Controller
         control={control}
         name={name}

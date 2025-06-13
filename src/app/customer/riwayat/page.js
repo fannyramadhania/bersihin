@@ -50,18 +50,18 @@ const RiwayatPage = () => {
     () => [
       {
         id: "nama",
-        header: () => <p className="text-sm dark:text-neutral-200">Nama</p>,
+        header: () => <p className="text-sm ">Nama</p>,
         accessorKey: "nama",
       },
 
       {
         id: "Package.name",
-        header: () => <p className="text-sm dark:text-neutral-200">Paket</p>,
+        header: () => <p className="text-sm ">Paket</p>,
         accessorKey: "Package.name",
       },
       {
         id: "time_booking",
-        header: () => <p className="text-sm dark:text-neutral-200">Waktu</p>,
+        header: () => <p className="text-sm ">Waktu</p>,
         accessorKey: "time_booking",
         cell: ({ getValue }) => {
           const time_booking = getValue();

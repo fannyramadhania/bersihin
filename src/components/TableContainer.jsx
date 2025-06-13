@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import {
@@ -12,7 +12,12 @@ import {
   getFacetedUniqueValues,
   getFacetedMinMaxValues,
 } from "@tanstack/react-table";
-import { DownOutlined, LeftOutlined, RightOutlined, UpOutlined } from "@ant-design/icons";
+import {
+  DownOutlined,
+  LeftOutlined,
+  RightOutlined,
+  UpOutlined,
+} from "@ant-design/icons";
 const TableContainer = ({
   datas,
   columns,
@@ -101,7 +106,7 @@ const TableContainer = ({
     <>
       <div className="isolate" style={{ zIndex: 999 }}>
         <div className="flex gap-2 justify-between mb-4 mt-2 items-center">
-          <div className="text-black  mt-3 dark:text-neutral-200">
+          <div className="text-black  mt-3 ">
             {totalRows === 0 ? (
               "No results"
             ) : (
@@ -141,14 +146,14 @@ const TableContainer = ({
         </div>
         <div className="overflow-x-auto custom-scrollbar ">
           <table className="w-full border-collapse">
-            <thead className="bg-gray-100 dark:bg-main rounded-t-lg">
+            <thead className="bg-gray-100 n rounded-t-lg">
               {table.getHeaderGroups().map((headerGroup) => (
                 <tr key={headerGroup.id}>
                   {headerGroup.headers.map((header, index) => (
                     <th
                       key={header.id}
                       onClick={header.column.getToggleSortingHandler()}
-                      className={`p-4 text-left  text-xs font-medium  text-gray-500  dark:text-gray-300  tracking-wider cursor-pointer ${
+                      className={`p-4 text-left  text-xs font-medium  text-gray-500    tracking-wider cursor-pointer ${
                         index === 0 ? "rounded-tl-lg rounded-bl-lg " : ""
                       } ${
                         index === headerGroup.headers.length - 1
@@ -187,7 +192,7 @@ const TableContainer = ({
                   return (
                     <tr
                       key={row.id}
-                      className=" border-gray-300 dark:border-boxDarkSecondary text-black dark:text-neutral-200 "
+                      className=" border-gray-300  text-black  "
                     >
                       {row.getVisibleCells().map((cell) => {
                         const value = cell.getValue();
@@ -228,9 +233,9 @@ const TableContainer = ({
               disabled={!table.getCanPreviousPage()}
               className="border border-gray-300 disabled:opacity-30"
             >
-              <LeftOutlined className="w-7 h-7 dark:text-gray-100" />
+              <LeftOutlined className="w-7 h-7 " />
             </button>
-            <span className="flex items-center gap-1 dark:text-gray-100">
+            <span className="flex items-center gap-1 ">
               <strong>Page</strong>
               <input
                 name="page"
@@ -251,14 +256,14 @@ const TableContainer = ({
                   }
                   table.setPageIndex(page);
                 }}
-                className=" mx-2 border p-1 rounded w-14 bg-transparent font-bold dark:border-borderDark  text-center"
+                className=" mx-2 border p-1 rounded w-14 bg-transparent font-bold   text-center"
                 min={1}
                 max={table.getPageCount()}
                 disabled={table.getPageCount() === 0}
               />
             </span>
             <div className="flex gap-1 flex-row">
-              <span className="dark:text-gray-100">
+              <span className="">
                 Of {table.getPageCount()}{" "}
               </span>
             </div>
@@ -269,7 +274,7 @@ const TableContainer = ({
               disabled={!table.getCanNextPage()}
               className="border border-gray-300 disabled:opacity-30"
             >
-              <RightOutlined className="w-7 h-7 dark:text-gray-100" />
+              <RightOutlined className="w-7 h-7 " />
             </button>
           </div>
         </div>

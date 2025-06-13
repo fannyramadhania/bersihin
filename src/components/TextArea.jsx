@@ -25,9 +25,7 @@ const TextareaField = ({
       render={({ field, fieldState: { error } }) => (
         <div className={`w-full mb-4 ${classNames}`}>
           {label && (
-            <label className="block text-sm text-gray-700 dark:text-neutral-200 mb-1">
-              {label}
-            </label>
+            <label className="block text-sm text-gray-700  mb-1">{label}</label>
           )}
           <TextArea
             {...field}

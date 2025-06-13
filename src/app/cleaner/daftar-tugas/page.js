@@ -41,22 +41,22 @@ const RiwayatCleaner = () => {
     () => [
       {
         id: "nama",
-        header: () => <p className="text-sm dark:text-neutral-200">Nama</p>,
+        header: () => <p className="text-sm ">Nama</p>,
         accessorKey: "nama",
       },
       {
         id: "address",
-        header: () => <p className="text-sm dark:text-neutral-200">Alamat</p>,
+        header: () => <p className="text-sm ">Alamat</p>,
         accessorKey: "address",
       },
       {
         id: "Package.name",
-        header: () => <p className="text-sm dark:text-neutral-200">Paket</p>,
+        header: () => <p className="text-sm ">Paket</p>,
         accessorKey: "Package.name",
       },
       {
         id: "time_booking",
-        header: () => <p className="text-sm dark:text-neutral-200">Waktu</p>,
+        header: () => <p className="text-sm ">Waktu</p>,
         accessorKey: "time_booking",
         cell: ({ getValue }) => {
           const time_booking = getValue();
@@ -87,7 +87,7 @@ const RiwayatCleaner = () => {
       },
       {
         id: "status",
-        header: () => <p className="text-sm dark:text-neutral-200">Status</p>,
+        header: () => <p className="text-sm ">Status</p>,
         accessorKey: "status",
         cell: ({ getValue, row }) => {
           const status = getValue();
@@ -141,16 +141,12 @@ const RiwayatCleaner = () => {
     if (formValues.status === "CANCEL") {
       formData.append("reason_cancel", formValues.alasan || "");
     }
-   
-    
 
     const res = await fetch("/api/order", {
       method: "PATCH",
       body: formData,
     });
 
-
-    
     const result = await res.json();
 
     if (res.ok) {
