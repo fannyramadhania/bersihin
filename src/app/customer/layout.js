@@ -1,13 +1,12 @@
 "use client";
 
 import { Layout, Menu } from "antd";
-import { BookOutlined, HistoryOutlined, UserOutlined } from "@ant-design/icons";
+import { BookOutlined, HistoryOutlined, UserOutlined , WhatsAppOutlined } from "@ant-design/icons";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import HeaderLayout from "@/pages/profile/Header";
 import { HasAccess, usePermify } from "@permify/react-role";
 import PageAuthorized from "../unauthorize/page";
-
 import Logo from "@/assets/img/logobener.png";
 import { getItem } from "@/lib/LocalForage";
 import Loading from "@/components/Loading";
@@ -53,6 +52,7 @@ const SidebarLayout = ({ children }) => {
       icon: <UserOutlined />,
       label: "Profil",
     },
+  
   ];
 
   const handleMenuClick = ({ key }) => {

@@ -5,6 +5,7 @@ import {
   ExceptionOutlined,
   ProfileOutlined,
   UserOutlined,
+  WhatsAppOutlined
 } from "@ant-design/icons";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -58,6 +59,7 @@ const SidebarLayout = ({ children }) => {
       icon: <UserOutlined />,
       label: "Profil",
     },
+ 
   ];
 
   const handleMenuClick = ({ key }) => {

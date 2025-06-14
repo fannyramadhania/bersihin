@@ -21,7 +21,7 @@ export default function Account() {
           type="primary"
           size="large"
           className="bg-blue-600 hover:bg-blue-700 text-white font-semibold"
-          onClick={() => router.push("/cleaner/pekerjaan")}
+          onClick={() => router.push("/cleaner/to-do")}
         >
           Lihat Perkerjaan
         </Button>

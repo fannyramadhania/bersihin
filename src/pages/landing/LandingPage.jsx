@@ -741,7 +741,7 @@ const LandingPageCard = ({ role, isAuthorize }) => {
               <div className="mb-4 md:mb-0">
                 <h4 className="font-semibold text-white mb-2">Kontak</h4>
                 <p className="text-white">infobersihin@gmail.com</p>
-                <p className="text-white">+1 (123) 456-7890</p>
+                <p className="text-white">+62 8953-4928-2720</p>
               </div>
 
               <div>
@@ -762,7 +762,7 @@ const LandingPageCard = ({ role, isAuthorize }) => {
                     </svg>
                   </a>
                   <a
-                    href="https://wa.me/6281234567890" // ganti dengan nomor kamu
+                    href="https://wa.me/62895349282720" // ganti dengan nomor kamu
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-gray-900"
