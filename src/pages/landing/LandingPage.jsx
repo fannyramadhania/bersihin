@@ -18,6 +18,7 @@ import {
   MenuOutlined,
   CloseOutlined,
   SmileOutlined,
+  WhatsAppOutlined,
 } from "@ant-design/icons";
 import Logo from "@/assets/img/logobener.png";
 import { Button, Carousel, Steps } from "antd";
@@ -322,6 +323,8 @@ const LandingPageCard = ({ role, isAuthorize }) => {
               className="text-white"
               style={{ fontSize: "20px" }}
             />
+            
+            
             <div className="text-sm  ">
               <p>Jakarta , Indonesia</p>
             </div>

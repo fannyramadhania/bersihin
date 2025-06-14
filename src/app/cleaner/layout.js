@@ -5,7 +5,7 @@ import {
   ExceptionOutlined,
   ProfileOutlined,
   UserOutlined,
-  WhatsAppOutlined
+  WhatsAppOutlined,
 } from "@ant-design/icons";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -59,10 +59,20 @@ const SidebarLayout = ({ children }) => {
       icon: <UserOutlined />,
       label: "Profil",
     },
+    {
+      key: "Bantuan",
+      icon: <WhatsAppOutlined />,
+      label: "Bantuan",
+    }
+    
  
   ];
 
   const handleMenuClick = ({ key }) => {
+    if (key == "Bantuan") {
+      window.open("https://wa.me/62895349282720", "_blank");
+      return;
+    }
     if (key !== pathname) {
       router.push(key);
     }

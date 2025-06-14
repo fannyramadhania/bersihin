@@ -1,7 +1,12 @@
 "use client";
 
 import { Layout, Menu } from "antd";
-import { BookOutlined, HistoryOutlined, UserOutlined , WhatsAppOutlined } from "@ant-design/icons";
+import {
+  BookOutlined,
+  HistoryOutlined,
+  UserOutlined,
+  WhatsAppOutlined,
+} from "@ant-design/icons";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import HeaderLayout from "@/pages/profile/Header";
@@ -10,6 +15,7 @@ import PageAuthorized from "../unauthorize/page";
 import Logo from "@/assets/img/logobener.png";
 import { getItem } from "@/lib/LocalForage";
 import Loading from "@/components/Loading";
+import { key } from "localforage";
 
 const { Sider, Content, Header } = Layout;
 
@@ -27,7 +33,9 @@ const SidebarLayout = ({ children }) => {
         setUser({
           id: user?.customer_id,
           roles: user?.customer_id ? ["customer"] : ["cleaner"],
-          permissions: user?.customer_id ? ["customer-activity"] : ["cleaner-activity"],
+          permissions: user?.customer_id
+            ? ["customer-activity"]
+            : ["cleaner-activity"],
         });
       }
       setLoadingUser(false);
@@ -52,10 +60,18 @@ const SidebarLayout = ({ children }) => {
       icon: <UserOutlined />,
       label: "Profil",
     },
-  
+    {
+      key: "Bantuan",
+      icon: <WhatsAppOutlined />,
+      label: "Bantuan",
+    },
   ];
 
   const handleMenuClick = ({ key }) => {
+    if (key == "Bantuan") {
+      window.open("https://wa.me/62895349282720", "_blank");
+      return;
+    }
     if (key !== pathname) {
       router.push(key);
     }
